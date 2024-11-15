@@ -9,9 +9,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-    public User() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "user_id")
@@ -25,6 +22,8 @@ public class User {
     private int salary;
     @Column
     private int age;
+
+    public User() {}
 
     public User(String name, String surname, int salary, int age) {
         this.name = name;

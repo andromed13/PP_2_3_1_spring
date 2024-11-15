@@ -32,6 +32,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @Transactional
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
+    }
+
+    @Override
+    @Transactional
     public List<User> listUsers() {
         String jpql = "SELECT c FROM User c";
         TypedQuery<User> query = entityManager.createQuery(jpql, User.class);

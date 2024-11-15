@@ -39,7 +39,6 @@ public class DatabaseConfig {
         return em;
     }
 
-
     public Properties getHibernateProperties() {
         try {
             Properties properties = new Properties();

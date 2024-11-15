@@ -2,6 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td { padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd; }
+  </style>
   <title>users</title>
 </head>
 <body>
@@ -15,6 +24,7 @@
       <th>Фамилия</th>
       <th>Зарплата</th>
       <th>Возраст</th>
+      <th>Действия</th>
     </tr>
     </thead>
     <tbody>
@@ -24,9 +34,23 @@
       <td th:text="${user.surname}">...</td>
       <td th:text="${user.salary}">...</td>
       <td th:text="${user.age}">...</td>
+      <td>
+        <form th:action="@{/users/update}" method="GET" style="display:inline;">
+          <input type="hidden" name="id" th:value="${user.id}"/>
+          <button type="submit" class="button">update</button>
+        </form>
+        <form th:action="@{/users/delete}" method="post" style="display:inline;">
+          <input type="hidden" name="id" th:value="${user.id}"/>
+          <button type="submit" class="button">delete</button>
+        </form>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
+<br/>
+<form th:action="@{/users/new}" method="get"/>
+    <button type="submit" class="button"> Создать нового пользователя </button>
+</form>
 </body>
 </html>

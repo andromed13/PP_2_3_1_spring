@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    public User findById(Long userId) {
+        return userDao.findById(userId);
+    }
+
+    @Override
+    @Transactional
     public List<User> listUsers() {
         return userDao.listUsers();
     }
